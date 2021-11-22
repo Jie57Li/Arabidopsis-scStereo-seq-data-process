@@ -1,1 +1,1 @@
-# Arabidopsis-scStereo-seq-data-process
+# Single-cell Stereo-seq analysis script of Arabidopsis leaves
