@@ -9,11 +9,11 @@ library(RColorBrewer)
 library(ggplot2)
 library(Seurat)
 library(ggpubr)
-setwd("J:/BGI/Projects/2021/2.植物空间组/2.Analyses/02.AT-leaves/")
+setwd("Projects/Fig5")
 
 # 2. Find marker gene 
 #-------------------------------------------------------------------------------
-rds1 <- readRDS("a0.RDS/reassigned_merged_umap_res0.4_0313v2(1)(1).rds")
+rds1 <- readRDS("../RDS/Run.rds")
 ## Vascular marker
 sub <- rds1[,grep(pattern = "vascu", rownames(rds1@meta.data))]
 vas <- FindMarkers(sub, ident.1 = 0, ident.2 = 3, min.pct = 0.14)
@@ -83,10 +83,6 @@ pc3 <- plot(plot_cell_trajectory(cd, show_cell_names = F,
 
 p <- ggarrange(pc1, pc2, pc3, nrow = 1)
 
-## Output Cell Trajectory
-pdf("4.results/5.Monocle/3.Vascular/Plots/updated/Vascular_full_trajectory_T_0423.pdf", width = 15, height = 4)
-p
-dev.off()
 
 # 8. Do heatmap 
 #-------------------------------------------------------------------------------
@@ -99,12 +95,10 @@ tst <- plot_pseudotime_heatmap(cd[sig_gene_names,],
                                num_clusters = 3,
                                cores = 1,
                                show_rownames = F)
-pdf("4.results/5.Monocle/3.Vascular/Plots/updated/VasDEG_by_pseudotime_nonames_0320.pdf",width = 5, height = 5)
 plot_pseudotime_heatmap(cd[sig_gene_names,],
                         num_clusters = 3,
                         cores = 1,
                         show_rownames = F)
-dev.off()
 
 # 9. Plot canonical genes
 #-------------------------------------------------------------------------------
@@ -132,10 +126,3 @@ pg3 <- plot_genes_in_pseudotime(cds_subset, color_by = "reassign_7cut")
 cds_subset <- cd[c("AT4G33980"),]
 pg4 <- plot_genes_in_pseudotime(cds_subset, color_by = "reassign_7cut")
 p2 <- ggarrange(pg1, pg2, pg3, pg4, nrow = 1)
-
-pdf("4.results/5.Monocle/3.Vascular/Canonical_genes_20210317_main_v2.pdf", width = 12, height = 3)
-p1
-dev.off()
-pdf("4.results/5.Monocle/3.Vascular/Canonical_genes_20210317_supplementary_v2.pdf", width = 16, height = 3)
-p2
-dev.off()
