@@ -13,7 +13,7 @@ setwd("Projects/Fig3")
 
 # 2. load data and save the subtype
 #-------------------------------------------------------------------------------
-obj <- readRDS("../RDS/Run-PCA-871cells.rds")
+obj <- readRDS("../RDS/Run.rds")
 Mesophyll <- subset(obj,idents = "Mesophyll")
 # saveRDS(Mesophyll,"../RDS/Mesophyll_subtype_pre.rds")
 
