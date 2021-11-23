@@ -18,7 +18,7 @@ setwd("Projects/Fig4")
 
 # 2. Load data
 #-------------------------------------------------------------------------------
-obj <- readRDS("../RDS/Run-PCA-871cells.rds")
+obj <- readRDS("../RDS/Run.rds")
 s_merge <- subset(obj,cell_type %in% c("sponge","palisad"))
 
 all <- FindAllMarkers(s_merge, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
