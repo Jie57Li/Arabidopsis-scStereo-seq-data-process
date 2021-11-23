@@ -12,7 +12,7 @@ library(openxlsx)
 setwd("Projects/Fig3")
 
 ## 2. load data and save the subtype
-obj <- readRDS("../RDS/Run-PCA-871cells.rds")
+obj <- readRDS("../RDS/Run.rds")
 Epidermal <- subset(obj,idents = "Epidermal")
 # saveRDS(sub_obj,"../a0.RDS/Epidermal_subtype_pre.rds")
 
