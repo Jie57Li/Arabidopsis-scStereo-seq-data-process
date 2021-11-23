@@ -13,7 +13,7 @@ setwd("Projects/Fig3")
 
 # 2. load data
 #-------------------------------------------------------------------------------
-obj <- readRDS("../a0.RDS/Run-PCA-871cells.rds")
+obj <- readRDS("../a0.RDS/Run.rds")
 obj@active.ident <- factor(obj@active.ident,levels = c("Vascular","Epidermal","Mesophyll","Guardcells"))
 
 # 2. Vlnplot (Fig. 3a and Fig. S3a)
