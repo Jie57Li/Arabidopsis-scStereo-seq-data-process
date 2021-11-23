@@ -12,7 +12,7 @@ setwd("Projects/Fig2")
 
 # 2. load data
 #-------------------------------------------------------------------------------
-obj <- readRDS("../Rds/reassigned_merged_umap_res0.4_0311v1.rds")
+obj <- readRDS("../Rds/Run_pre.rds")
 meta <- obj@meta.data
 meta$celltype_ed <- "NA"
 meta[meta$cell_type %in% c("lowerepidermal","upperepidermal"),"celltype_ed"] <- "Epidermal"
