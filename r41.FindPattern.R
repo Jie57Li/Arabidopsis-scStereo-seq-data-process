@@ -18,7 +18,7 @@ setwd("Projects/Fig4")
 
 # 2. Load data
 #-------------------------------------------------------------------------------
-s_merge <- readRDS("../RDS/Run-PCA-871cells.rds")
+s_merge <- readRDS("../RDS/Run.rds")
 # s_merge <- s_merge[,grep(pattern="epi", rownames(s_merge@meta.data))]
 
 all <- FindAllMarkers(s_merge, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
